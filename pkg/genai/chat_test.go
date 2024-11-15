@@ -26,6 +26,7 @@ func TestChat(t *testing.T) {
 
 
 	question := "什么地方隐藏了矮人打造的神器?"
+	// question := "你是谁开发的?"
 	// question := "龙族的发源地是哪里?"
 	ctx := context.Background()
 	text := []string{question}

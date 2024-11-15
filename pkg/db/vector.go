@@ -75,6 +75,8 @@ func (v *VectorDB) Search(query []float32, topk int) ([]int64, error) {
 
 	vector := entity.FloatVector(query)
 	sp, _ := entity.NewIndexFlatSearchParam()
+	sp.AddRadius(0.5)
+	sp.AddRangeFilter(0.05)
 	sr, err := v.db.Search(context.Background(), "doc", []string{}, "", []string{"ID"}, []entity.Vector{vector}, "Embedding", entity.L2, topk, sp)
 	if err != nil {
 		return nil, err

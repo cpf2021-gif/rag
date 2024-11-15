@@ -111,7 +111,8 @@ func TestSearch(t *testing.T) {
 		}
 
 		text := []string{
-			"龙族的发源地是哪里",
+			// "龙族的发源地是哪里",
+			"时光图书馆",
 		}
 
 		e := genai.NewEmbedding()
@@ -134,6 +135,8 @@ func TestSearch(t *testing.T) {
 			t.Errorf("Error searching embeddings: %v", err)
 		}
 		fmt.Println(ids)
-		fmt.Println(knowledgeBase[ids[0]-1])
+		if len(ids) == 1 {
+			fmt.Println(knowledgeBase[ids[0]-1])
+		}
 	}
 }
